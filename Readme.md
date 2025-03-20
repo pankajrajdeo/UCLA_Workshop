@@ -119,28 +119,4 @@ For detailed information on the plotting functions, including required and optio
   - `matplotlib` and `seaborn` for plotting
   - `networkx` and `python-igraph` for network visualizations
 
-## Contributing
-Contributions are welcome! Please:
-
-1. Fork the repository.
-2. Create a feature branch:  
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. Commit your changes:  
-   ```bash
-   git commit -m "Add your feature"
-   ```
-4. Push to the branch:  
-   ```bash
-   git push origin feature/your-feature
-   ```
-5. Open a pull request.
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details (to be added).
-
-## Contact
-For questions or support, please contact **Pankaj Rajdeo** or open an issue in this repository.
-
 _Last updated: March 19, 2025_
