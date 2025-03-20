@@ -7,6 +7,8 @@ This repository contains tools and scripts developed for a UCLA workshop focused
 - **[`figure_generation.py`](./figure_generation.py)**: The main Python script for generating visualizations from scRNA-seq data stored in `.h5ad` format.
 - **[`requirements.txt`](./requirements.txt)**: A list of Python dependencies required to run the script.
 - **[`PLOT_API_DOCUMENTATION.md`](./PLOT_API_DOCUMENTATION.md)**: Detailed API-like documentation for the plotting functions in `figure_generation.py`.
+- **[`datasets/`](./datasets/)**: Directory to store input `.h5ad` files (e.g., `HLCA_full_superadata_v3_norm_log_deg.h5ad`).
+- **[`results/`](./results/)**: Directory where output plots and tabular data are saved.
 
 ## Features
 
@@ -55,7 +57,12 @@ See `requirements.txt` for the full list with version constraints.
 ## Usage
 
 ### 1. Prepare Your Data
-- Ensure you have an AnnData object (`.h5ad` file) with precomputed statistics (`marker_stats`, `disease_stats`, `interaction_data` in `adata.uns` if needed).
+- **Download the Dataset**: Obtain the `HLCA_full_superadata_v3_norm_log_deg.h5ad` file from this [Google Drive link](https://drive.google.com/file/d/1fD2uikNSbJhfQAhKESWIoHAXn9pZmI8b/view?usp=sharing).
+- **Move the File**: Place the downloaded `HLCA_full_superadata_v3_norm_log_deg.h5ad` file into the `datasets/` directory:
+  ```bash
+  mv /path/to/downloaded/HLCA_full_superadata_v3_norm_log_deg.h5ad datasets/
+  ```
+- This `.h5ad` file contains the integrated Human Lung Cell Atlas (HLCA) data with supercell bins (50 cells per bin), reducing 2,282,447 cells to 50,520 metacells, and includes precomputed `marker_stats` and `disease_stats` in `adata.uns`.
 - Create a JSON configuration file specifying the analysis parameters (see example below).
 
 ### 2. Run the Script
@@ -66,48 +73,54 @@ python figure_generation.py <json_input_file> <output_directory>
 - `<output_directory>`: Directory to save output files (default: `results`).
 
 #### Example
+To generate a volcano plot for differentially expressed genes in "Alveolar macrophages" under "COVID-19" conditions:
 ```bash
-python figure_generation.py HLCA_full_superadata_v3_norm_log_deg.json results
+python figure_generation.py datasets/HLCA_config_volcano.json results
+```
+For all plot types:
+```bash
+python figure_generation.py datasets/HLCA_config_all.json results
 ```
 
 ### JSON Configuration
+Example configuration tailored to `HLCA_full_superadata_v3_norm_log_deg.h5ad` dataset for a volcano plot comparing "COVID-19" vs. "normal" in "Alveolar macrophages":
 ```json
 {
-    "adata_file": "path/to/HLCA_full_superadata_v3_norm_log_deg.h5ad",
-    "plot_type": "all",
-    "cell_type_index": "cell_type",
+    "adata_file": "datasets/HLCA_full_superadata_v3_norm_log_deg.h5ad",
+    "plot_type": "volcano",
+    "cell_type_index": "ann_finest_level",
     "covariate_index": "disease",
-    "covariates": ["control", "disease1", "disease2"],
-    "gene": "GENE1",
-    "gene_symbols": [],
-    "cell_type": "T cells",
-    "disease": "disease1",
+    "covariates": ["normal", "COVID-19"],
+    "cell_type": "Alveolar macrophages",
+    "disease": "COVID-19",
     "direction": "up",
     "n_genes": 100,
-    "cell_types_to_compare": ["T cells", "B cells", "Macrophages"],
-    "donor_index": "donor",
-    "sex_index": "sex",
-    "display_variables": ["disease", "assay"],
-    "study_index": "study",
-    "restrict_studies": ["study1", "study2"],
-    "variable2_index": "technology",
-    "restrict_variable2": ["10x", "Smart-seq2"],
-    "variable3_index": null,
-    "restrict_variable3": null,
-    "variable4_index": null,
-    "restrict_variable4": null,
-    "heatmap_technology": "seaborn",
-    "network_technology": "igraph",
-    "show_individual_cells": true,
-    "color_by": "cell_type"
+    "donor_index": "donor_id"
 }
 ```
-- `plot_type`: Can be `all`, `umap`, `heatmap`, `violin`, etc.
-- See `PLOT_API_DOCUMENTATION.md` for full parameter details.
 
-### Output
-- Plots are saved as PDF and PNG files (e.g., `results/UMAP_GENE1_control_disease1.pdf`).
-- Tabular data (e.g., DEGs, intersections) are saved as TSV files.
+Alternatively, to generate all plot types with a broader scope:
+```json
+{
+    "adata_file": "datasets/HLCA_full_superadata_v3_norm_log_deg.h5ad",
+    "plot_type": "all",
+    "cell_type_index": "ann_finest_level",
+    "covariate_index": "disease",
+    "covariates": ["normal", "COVID-19", "pulmonary fibrosis"],
+    "gene": "ACE2",
+    "gene_symbols": [],
+    "cell_type": "Alveolar macrophages",
+    "disease": "COVID-19",
+    "direction": "up",
+    "n_genes": 100,
+    "donor_index": "donor_id"
+}
+```
+Save these as `datasets/HLCA_config_volcano.json` or `datasets/HLCA_config_all.json`.
+
+## Output
+- Plots are saved as PDF and PNG files (e.g., `results/volcano_Alveolar_macrophages_COVID-19.pdf` or `results/UMAP_ACE2_normal_COVID-19.pdf`).
+- Tabular data (e.g., DEGs, intersections) are saved as TSV files in the `results/` directory.
 
 ## Documentation
 For detailed information on the plotting functions, including required and optional parameters, refer to **[`PLOT_API_DOCUMENTATION.md`](./PLOT_API_DOCUMENTATION.md)**. This file provides API-like documentation for each visualization type in **[`figure_generation.py`](./figure_generation.py)**.
