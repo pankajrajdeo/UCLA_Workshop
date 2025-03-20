@@ -70,19 +70,36 @@ python figure_generation.py <json_input_file> <output_directory>
 python figure_generation.py HLCA_full_superadata_v3_norm_log_deg.json results
 ```
 
-### Example JSON Configuration
+### JSON Configuration
 ```json
 {
-    "adata_file": "path/to/your/data.h5ad",
+    "adata_file": "path/to/HLCA_full_superadata_v3_norm_log_deg.h5ad",
     "plot_type": "all",
-    "cell_type_index": "cell type",
+    "cell_type_index": "cell_type",
     "covariate_index": "disease",
-    "covariates": ["control", "disease1"],
+    "covariates": ["control", "disease1", "disease2"],
     "gene": "GENE1",
+    "gene_symbols": [],
     "cell_type": "T cells",
     "disease": "disease1",
     "direction": "up",
-    "n_genes": 100
+    "n_genes": 100,
+    "cell_types_to_compare": ["T cells", "B cells", "Macrophages"],
+    "donor_index": "donor",
+    "sex_index": "sex",
+    "display_variables": ["disease", "assay"],
+    "study_index": "study",
+    "restrict_studies": ["study1", "study2"],
+    "variable2_index": "technology",
+    "restrict_variable2": ["10x", "Smart-seq2"],
+    "variable3_index": null,
+    "restrict_variable3": null,
+    "variable4_index": null,
+    "restrict_variable4": null,
+    "heatmap_technology": "seaborn",
+    "network_technology": "igraph",
+    "show_individual_cells": true,
+    "color_by": "cell_type"
 }
 ```
 - `plot_type`: Can be `all`, `umap`, `heatmap`, `violin`, etc.
