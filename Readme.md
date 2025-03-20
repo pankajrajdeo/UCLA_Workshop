@@ -106,7 +106,7 @@ Example configuration for `configs/HLCA_config_all.json`:
 - Tabular data (e.g., DEGs, intersections) are saved as TSV files in the `results/` directory.
 
 ## Documentation
-For detailed information on the plotting functions, including required and optional parameters, refer to `PLOT_API_DOCUMENTATION.md`. This file provides API-like documentation for each visualization type in `figure_generation.py`.
+For detailed information on the plotting functions, including required and optional parameters, refer to **[`PLOT_API_DOCUMENTATION.md`](./PLOT_API_DOCUMENTATION.md)**. This file provides API-like documentation for each visualization type in `figure_generation.py`.
 
 ## Requirements
 - The script relies on **Python 3.8+** and the libraries listed in `requirements.txt`.
