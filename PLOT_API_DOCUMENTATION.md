@@ -1,6 +1,6 @@
 # Plot API Documentation
 
-This document provides API class-like documentation for each plot type defined in the provided Python code, detailing required and optional variables, their types, and descriptions based on standard practices.
+This document provides API class-like documentation for each plot type defined in the provided Python code within the [figure_generation.py](https://github.com/pankajrajdeo/UCLA_Workshop/blob/main/figure_generation.py) script, detailing required and optional variables, their types, and descriptions based on standard practices.
 ---
 
 ## Table of Contents
