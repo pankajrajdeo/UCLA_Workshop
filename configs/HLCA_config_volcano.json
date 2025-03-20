@@ -1,0 +1,12 @@
+{
+    "adata_file": "datasets/HLCA_full_superadata_v3_norm_log_deg.h5ad",
+    "plot_type": "volcano",
+    "cell_type_index": "ann_finest_level",
+    "covariate_index": "disease",
+    "covariates": ["normal", "COVID-19"],
+    "cell_type": "Alveolar macrophages",
+    "disease": "COVID-19",
+    "direction": "up",
+    "n_genes": 100,
+    "donor_index": "donor_id"
+}
