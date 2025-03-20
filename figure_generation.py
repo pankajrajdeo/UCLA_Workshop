@@ -2660,6 +2660,10 @@ def visualize_gene_network_igraph(
 
 
 if __name__ == '__main__':
-
-    json_input = 'HLCA_full_superadata_v3_norm_log_deg.json'
-    main(json_input, output_dir="results")
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: python figure_generation.py <json_input> [output_dir]")
+        sys.exit(1)
+    json_input = sys.argv[1]
+    output_dir = sys.argv[2] if len(sys.argv) > 2 else "results"
+    main(json_input, output_dir)
