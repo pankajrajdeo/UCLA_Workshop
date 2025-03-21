@@ -10,6 +10,7 @@ This repository contains tools and scripts developed for a UCLA workshop focused
 - **[`datasets/`](./datasets/)**: Directory to store input `.h5ad` files and associated metadata.
 - **[`configs/`](./configs/)**: Directory containing predefined JSON configuration files for generating plots.
 - **[`results/`](./results/)**: Directory where output plots and tabular data are saved.
+- **[`HLCA_metadata.md`](./HLCA_metadata.md)**: Metadata document detailing the available fields and indexes in the HLCA dataset. **Refer to this file to understand the fields available for plotting.**
 
 ## Features
 
@@ -106,7 +107,7 @@ Example configuration for `configs/HLCA_config_all.json`:
 - Tabular data (e.g., DEGs, intersections) are saved as TSV files in the `results/` directory.
 
 ## Documentation
-For detailed information on the plotting functions, including required and optional parameters, refer to **[`PLOT_API_DOCUMENTATION.md`](./PLOT_API_DOCUMENTATION.md)**. This file provides API-like documentation for each visualization type in `figure_generation.py`.
+For detailed information on the plotting functions, including required and optional parameters, refer to **[`PLOT_API_DOCUMENTATION.md`](./PLOT_API_DOCUMENTATION.md)**. Additionally, to understand the available fields and metadata (used for plotting and configuration), please consult the **[`HLCA_metadata.md`](./HLCA_metadata.md)** file.
 
 ## Requirements
 - The script relies on **Python 3.8+** and the libraries listed in `requirements.txt`.
@@ -115,4 +116,4 @@ For detailed information on the plotting functions, including required and optio
   - `matplotlib` and `seaborn` for plotting
   - `networkx` and `python-igraph` for network visualizations
 
-_Last updated: March 19, 2025_
+_Last updated: March 21, 2025_
