@@ -6,7 +6,8 @@
 - **Species**: Homo sapiens  
 - **Research Team**: Human Lung Cell Atlas Initiative  
 - **Publication**: [https://www.nature.com/articles/s41591-023-02327-2](https://www.nature.com/articles/s41591-023-02327-2)  
-- **Source**: [https://cellxgene.cziscience.com/collections/6f6d381a-7701-4781-935c-db10d30de293](https://cellxgene.cziscience.com/collections/6f6d381a-7701-4781-935c-db10d30de293)  
+- **Source**: [https://cellxgene.cziscience.com/collections/6f6d381a-7701-4781-935c-db10d30de293](https://cellxgene.cziscience.com/collections/6f6d381a-7701-4781-935c-db10d30de293)
+- **Download the Dataset**: Obtain the `HLCA_full_superadata_v3_norm_log_deg.h5ad` file from this [Google Drive link](https://drive.google.com/file/d/1fD2uikNSbJhfQAhKESWIoHAXn9pZmI8b/view?usp=sharing).
 
 ---
 
