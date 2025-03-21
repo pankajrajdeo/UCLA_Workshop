@@ -1,4 +1,4 @@
-# Human Lung Cell Atlas (HLCA) Metadata Document
+# Human Lung Cell Atlas (HLCA) Metadata
 
 ## Dataset Metadata
 - **Dataset Name**: HLCA_full_superadata_v3_norm_log_deg.h5ad  
